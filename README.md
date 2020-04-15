@@ -18,3 +18,28 @@ sudo vi /etc/apt/sources.list
 :%s/archive.ubuntu.com/ftp.daumkakao.com/g
 :wq!
 ```
+
+## Linux에 JDK 설치
+
+### 설치 명령
+```
+$ sudo apt-get update
+$ sudo apt install default-jdk
+```
+
+### JAVA_HOME 설정
+ .bashrc에 export JAVA_HOME='usr/lib/jvm/java-11-openjdk-amd64' 추가
+ 
+### 실행 path 추가
+.bashrc에 export PATH=$PATH:$JAVA_HOME/bin:. 추가
+
+### 수정사항 반영
+```
+$ source ~/.bashrc
+```
+
+### 설치 확인
+```
+$ echo $JAVA_HOME
+java -version
+```

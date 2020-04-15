@@ -58,3 +58,16 @@ sudo apt-get install -y kubectl
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 az login
 ```
+
+## Azure AKS connection
+### Local에서 Azure AKS 연결
+```
+az aks get-credentials --resource-group user11group --name user11kube
+```
+### AKS 연결 확인
+```
+kubectl config current-context
+kubectl get all
+```
+
+

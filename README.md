@@ -104,7 +104,7 @@ az aks update -n CLUSTER_NAME -g RESOURCE_GROUP_NAME --attach-acr ACR_NAME
 - Rest Repository
 
 ## helm 설치
-### helm 설치 커맨드
+### helm 및 kafka설치
 ```
 curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
 kubectl --namespace kube-system create sa tiller      # helm 의 설치관리자를 위한 시스템 사용자 생성
@@ -115,13 +115,7 @@ helm repo update
 
 ## kafka 설치
 ```
-curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
-kubectl --namespace kube-system create sa tiller      # helm 의 설치관리자를 위한 시스템 사용자 생성
-kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
-helm init --service-account tiller
-
 kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
-
 helm repo add incubator http://storage.googleapis.com/kubernetes-charts-incubator
 helm repo update
 helm install --name my-kafka --namespace kafka incubator/kafka

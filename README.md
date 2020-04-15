@@ -97,3 +97,8 @@ cat ~/.docker/config.json
 ```
 az aks update -n CLUSTER_NAME -g RESOURCE_GROUP_NAME --attach-acr ACR_NAME
 ```
+
+## Spring Boot 프로젝트 만들 때 추가할 라이브러리들
+- JPA
+- H2
+- Rest Repository

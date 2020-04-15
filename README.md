@@ -82,7 +82,7 @@ kubectl config current-context
 kubectl get all
 ```
 
-## Login Azure Container Registr
+## Login Azure Container Registry
 Docker 데몬이 설치되어 있지 않으면 이 부분 진행 안됨. 그러나 실기 테스트에서는 굳이 로컬에서 Docker 데몬을 구동할 필요 없음으로 패스해도 된다.
 ### Azure CLI
 ```

@@ -45,6 +45,7 @@ java -version
 ```
 
 ## Docker Client 설치
+실습시 이부분은 꼭 안해도 될듯
 ```
 sudo apt update
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
@@ -81,4 +82,18 @@ kubectl config current-context
 kubectl get all
 ```
 
+## Login Azure Container Registr
+Docker 데몬이 설치되어 있지 않으면 이 부분 진행 안됨. 그러나 실기 테스트에서는 굳이 로컬에서 Docker 데몬을 구동할 필요 없음으로 패스해도 된다.
+### Azure CLI
+```
+az acr login --name ACR_NAME
+```
+### 생성확인
+```
+cat ~/.docker/config.json
+```
 
+## Integrate AKS with ACR
+```
+az aks update -n CLUSTER_NAME -g RESOURCE_GROUP_NAME --attach-acr ACR_NAME
+```

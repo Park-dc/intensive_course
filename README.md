@@ -120,3 +120,19 @@ helm repo add incubator http://storage.googleapis.com/kubernetes-charts-incubato
 helm repo update
 helm install --name my-kafka --namespace kafka incubator/kafka
 ```
+
+### kafka 토픽 생성
+```
+kubectl -n kafka exec my-kafka-0 -- /usr/bin/kafka-topics --zookeeper my-kafka-zookeeper:2181 --topic eventTopic --create --partitions 1 --replication-factor 1
+```
+
+### kafka 이벤트 발행
+```
+kubectl -n kafka exec -ti my-kafka-0 -- /usr/bin/kafka-console-producer --broker-list my-kafka:9092 --topic eventTopic
+
+```
+
+### kafka 이벤트 수신
+```
+kubectl -n kafka exec -ti my-kafka-0 -- /usr/bin/kafka-console-consumer --bootstrap-server my-kafka:9092 --topic eventTopic --from-beginning
+```

@@ -62,7 +62,7 @@ az login
 ## Azure AKS connection
 ### Local에서 Azure AKS 연결
 ```
-az aks get-credentials --resource-group user11group --name user11kube
+az aks get-credentials --resource-group MY_RESOURCE_GROUP --name MY_CLUSTER_NAME
 ```
 ### AKS 연결 확인
 ```

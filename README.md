@@ -136,3 +136,8 @@ kubectl -n kafka exec -ti my-kafka-0 -- /usr/bin/kafka-console-producer --broker
 ```
 kubectl -n kafka exec -ti my-kafka-0 -- /usr/bin/kafka-console-consumer --bootstrap-server my-kafka:9092 --topic eventTopic --from-beginning
 ```
+
+### kafka 토픽 삭제
+```
+kubectl -n kafka exec my-kafka-0 -- /usr/bin/kafka-topics --delete --zookeeper my-kafka-zookeeper:2181 --topic TOPIC_NAME
+```

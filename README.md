@@ -223,6 +223,16 @@ spring:
           destination: shop
           contentType: application/json
 ```
+
+Data Rest를 특정 주소 밑으로 설정하려면
+``` yaml
+spring:
+  data:
+    rest:
+      basePath: /api
+
+```
+
 ### Dockerfile
 Dockerfile은 모든 프로젝트 공통이다.
 ``` docker

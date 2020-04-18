@@ -179,3 +179,45 @@ kubectl -n kafka exec -ti my-kafka-0 -- /usr/bin/kafka-console-consumer --bootst
 ```
 kubectl -n kafka exec my-kafka-0 -- /usr/bin/kafka-topics --delete --zookeeper my-kafka-zookeeper:2181 --topic TOPIC_NAME
 ```
+
+## Spring Boot 프로젝트 설정파일
+### application.yaml
+``` yaml
+server:
+  port: 8081
+
+spring:
+  profiles: default
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+      bindings:
+        input:
+          group: GROUP_NAME
+          destination: TOPIC_NAME
+          contentType: application/json
+        output:
+          destination: TOPIC_NAME
+          contentType: application/json
+---
+server:
+  port: 8080
+
+spring:
+  profiles: docker
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: my-kafka.kafka.svc.cluster.local:9092
+      bindings:
+        input:
+          group: GROUP_NAME
+          destination: TOPIC_NAME
+          contentType: application/json
+        output:
+          destination: shop
+          contentType: application/json
+```

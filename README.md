@@ -104,6 +104,43 @@ az aks update -n CLUSTER_NAME -g RESOURCE_GROUP_NAME --attach-acr ACR_NAME
 - Rest Repository
 - Spring Boot Actuator
 
+## Local에 kafka 설치하기
+Local에서 kafka는 윈도우 cmd에서 실행한다.
+https://kafka.apache.org/downloads 에서 Binary downloads하여 압축 해제.
+압축 해제 폴더에서 bin/windows 경로로 이동한다. 
+
+### zookeeper 실행
+kafka 실행전 zookeeper 실행 반드시 필요
+```
+zookeeper-server-start.bat ../../config/zookeeper.properties
+```
+
+### kafka 실행
+```
+kafka-server-start.bat ../../config/server.properties
+```
+
+### Topic 생성
+```
+kafka-topics.bat --zookeeper localhost:2181 --topic TOPIC_NAME --create --partitions 1 --replication-factor 1
+```
+
+### Topic 리스트 보기
+```
+kafka-topics.bat --zookeeper localhost:2181 --list
+```
+
+### 이벤트 발행하기
+```
+kafka-console-producer.bat --broker-list http://localhost:9092 --topic TOPIC_NAME
+```
+
+### 이벤트 수신하기
+```
+kafka-console-consumer.bat --bootstrap-server http://localhost:9092 --topic TOPIC_NAME --from-beginning
+```
+
+
 ## helm 및 kafka 설치
 ### helm 설치
 ```

@@ -102,6 +102,7 @@ az aks update -n CLUSTER_NAME -g RESOURCE_GROUP_NAME --attach-acr ACR_NAME
 - JPA
 - H2
 - Rest Repository
+- Spring Boot Actuator
 
 ## helm 및 kafka 설치
 ### helm 설치

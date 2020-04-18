@@ -385,28 +385,28 @@ stages:
 
 ### pom.xml 수정 사항
 ``` xml
-	<properties>
-		...
-		<spring-cloud.version>Hoxton.SR3</spring-cloud.version>
-	</properties>
+<properties>
+	...
+	<spring-cloud.version>Hoxton.SR3</spring-cloud.version>
+</properties>
  
- <dependencies>
-  ...
-  <dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-stream-kafka</artifactId>
-		</dependency>
+<dependencies>
+	...
+  	<dependency>
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-starter-stream-kafka</artifactId>
+	</dependency>
 </dependencies>
 
 <dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>${spring-cloud.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-dependencies</artifactId>
+			<version>${spring-cloud.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+	</dependencies>
+</dependencyManagement>
 ```

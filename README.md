@@ -431,3 +431,7 @@ stages:
 
 ### 파이프라인에서 사용할 Kubernetes 등록
 - Pipelines > Environments에서 aks라는 이름으로 쿠버네티스 환경 추가
+
+## Dashboard 구성
+아래 사이트에 가이드 있음.
+https://github.com/kubernetes/dashboard

@@ -420,3 +420,14 @@ stages:
 	</dependencies>
 </dependencyManagement>
 ```
+
+## Pipeline을 위한 dev.azure.com 셋팅
+- 좌측 메뉴 하단에 Project settings로 이동
+- Pipelines 메뉴 중에 Service connections 로 이동
+- 우측 상단에 New service connection 로 이동
+- Docker Registry 선택
+- Registry type으로 Azure Container Registry 선택
+- 자신의 Azure container registry 선택후 Service connection name에 "acr" 입력
+
+### 파이프라인에서 사용할 Kubernetes 등록
+- Pipelines > Environments에서 aks라는 이름으로 쿠버네티스 환경 추가

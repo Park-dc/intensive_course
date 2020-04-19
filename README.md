@@ -435,3 +435,8 @@ stages:
 ## Dashboard 구성
 아래 사이트에 가이드 있음.
 https://github.com/kubernetes/dashboard
+
+## Autoscale 설정 (Horizontal Pod Autoscaler)
+```
+kubectl autoscale deployment DEPLOYMENT_NAME --cpu-percent=50 --min=1 --max=10
+```

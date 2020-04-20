@@ -139,7 +139,8 @@ kafka-console-producer.bat --broker-list http://localhost:9092 --topic TOPIC_NAM
 ```
 kafka-console-consumer.bat --bootstrap-server http://localhost:9092 --topic TOPIC_NAME --from-beginning
 ```
-
+### config/server.properties
+여기에 delete.topic.enable=true 로 설정
 
 ## helm 및 kafka 설치
 ### helm 설치
